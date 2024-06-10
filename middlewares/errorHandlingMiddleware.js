@@ -14,7 +14,7 @@ const errorHandlingMiddleware = (req, res, next) => {
     });
   }
 
-  if (!passRegex.test(password)) {
+  if (!passRegex.test(password) || password.length < 8) {
     return res.json({
       message:
         "Not a valid password,password contains at least one special character, one uppercase letter, and one numeric character, min length: 8",
